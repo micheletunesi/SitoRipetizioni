@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michele Tunesi - Ricercatore</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: #e8f5e9;
+            overflow-x: hidden;
+        }
+        .header {
+            position: relative;
+            padding: 60px 20px 40px 20px;
+            text-align: center;
+            background: linear-gradient(120deg, #43ea7f 0%, #1b5e20 100%);
+            color: #fff;
+        }
+        .header h1 {
+            font-size: 2.8em;
+            margin: 0 0 10px 0;
+            letter-spacing: 2px;
+        }
+        .header h2 {
+            font-size: 1.3em;
+            font-weight: 400;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+        .geoshape {
+            position: absolute;
+            z-index: 0;
+            opacity: 0.18;
+        }
+        .geo1 {
+            top: -40px; left: -60px;
+            width: 180px; height: 180px;
+            background: #43ea7f;
+            clip-path: polygon(0 0, 100% 0, 0 100%);
+        }
+        .geo2 {
+            bottom: -60px; right: -40px;
+            width: 140px; height: 140px;
+            background: #1b5e20;
+            clip-path: circle(70px at 70px 70px);
+        }
+        .geo3 {
+            top: 30px; right: 20px;
+            width: 80px; height: 80px;
+            background: #43ea7f;
+            clip-path: polygon(100% 0, 100% 100%, 0 100%);
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(34, 139, 34, 0.10);
+            padding: 36px 28px;
+        }
+        .section-title {
+            color: #1b5e20;
+            font-size: 1.2em;
+            margin-bottom: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        ul {
+            color: #333;
+            font-size: 1.05em;
+            padding-left: 20px;
+        }
+        .copy-btn {
+            margin-left: 10px;
+            background: #43ea7f;
+            border: none;
+            color: #fff;
+            border-radius: 6px;
+            padding: 3px 10px;
+            font-size: 0.95em;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .copy-btn:hover {
+            background: #1b5e20;
+        }
+        @media (max-width: 600px) {
+            .content { padding: 22px 8px; }
+            .header h1 { font-size: 2em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="geoshape geo1"></div>
+        <div class="geoshape geo2"></div>
+        <div class="geoshape geo3"></div>
+        <h1>Michele Tunesi</h1>
+    </div>
+    <div class="content" style="margin-top: 24px;">
+        <div class="section-title">About Me</div>
+        <p>Sono un ricercatore del Politecnico di Torino e offro ripetizioni in materie scientifiche. Ho iniziato a dare ripetizioni al Liceo e tratto studenti dalle elementari fino ai primi anni di Università. Ho un dottorato in Ingegneria Meccanica e Aerospaziale, ottenuto negli Stati Uniti.</p>
+    </div>
+    <div class="content">
+        <div class="section-title">Aree di esperienza</div>
+        <ul>
+            <li>Matematica</li>
+            <li>Fisica</li>
+            <li>Inglese (6 anni vissuti negli Stati Uniti)</li>
+            <li>Geometria</li>
+            <li>MATLAB</li>
+            <li>Spagnolo (tramite madrelingua)</li>
+        </ul>
+    </div>
+    <div class="content" style="margin-top: 24px;">
+        <div class="section-title">Contatti</div>
+        <ul>
+            <li>Email: <a href="mailto:michele.tunesi.94@gmail.com">michele.tunesi.94@gmail.com</a></li>
+            <li>Telefono: <a href="tel:+393517184536">+39 351 718 4536</a></li>
+        </ul>
+    </body>
+    </html>
+    </div>
+</body>
+</html>
