@@ -1,136 +1,629 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michele Tunesi</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+
+    <title>Ripetizioni di Matematica, Fisica, Geometria e Inglese | Torino</title>
+
+    <meta name="description"
+        content="Ripetizioni di Matematica, Fisica, Geometria e Inglese a Torino e zone limitrofe. Ricercatore del Politecnico di Torino con PhD negli Stati Uniti. Lezioni in italiano, inglese e spagnolo.">
+
     <style>
+        :root {
+            --green-light: #EAF7EC;
+            --green-main: #4F9D69;
+            --green-dark: #2E6B44;
+            --white: #ffffff;
+            --text: #22313f;
+            --gray: #f7f9f8;
+            --shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            margin: 0;
-            min-height: 100vh;
-            font-family: 'Montserrat', Arial, sans-serif;
-            background: #e8f5e9;
-            overflow-x: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--text);
+            background: var(--green-light);
+            line-height: 1.6;
         }
-        .header {
-            position: relative;
-            padding: 60px 20px 40px 20px;
+
+        body.banner-hidden .top-banner {
+            display: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .top-banner {
+            background: #fff7d6;
+            color: #4d3b00;
             text-align: center;
-            background: linear-gradient(120deg, #43ea7f 0%, #1b5e20 100%);
-            color: #fff;
+            padding: 14px 20px;
+            font-weight: bold;
+            border-bottom: 1px solid #eadb91;
         }
-        .header h1 {
-            font-size: 2.8em;
-            margin: 0 0 10px 0;
-            letter-spacing: 2px;
+
+        .top-banner a {
+            color: #2E6B44;
+            text-decoration: underline;
         }
-        .header h2 {
-            font-size: 1.3em;
-            font-weight: 400;
-            margin: 0;
-            letter-spacing: 1px;
+
+        .hero {
+            background: linear-gradient(135deg, var(--green-main), var(--green-dark));
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
         }
-        .geoshape {
-            position: absolute;
-            z-index: 0;
-            opacity: 0.18;
+
+        .hero-content {
+            max-width: 900px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .geo1 {
-            top: -40px; left: -60px;
-            width: 180px; height: 180px;
-            background: #43ea7f;
-            clip-path: polygon(0 0, 100% 0, 0 100%);
+
+        .hero-image {
+            width: 220px;
+            margin-bottom: 30px;
         }
-        .geo2 {
-            bottom: -60px; right: -40px;
-            width: 140px; height: 140px;
-            background: #1b5e20;
-            clip-path: circle(70px at 70px 70px);
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            background: white;
+            object-fit: cover;
+            display: block;
         }
-        .geo3 {
-            top: 30px; right: 20px;
-            width: 80px; height: 80px;
-            background: #43ea7f;
-            clip-path: polygon(100% 0, 100% 100%, 0 100%);
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
         }
-        .content {
-            position: relative;
-            z-index: 1;
-            max-width: 600px;
-            margin: 40px auto;
-            background: #fff;
-            border-radius: 18px;
-            box-shadow: 0 4px 24px rgba(34, 139, 34, 0.10);
-            padding: 36px 28px;
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
         }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.18);
+            padding: 10px 16px;
+            border-radius: 999px;
+            font-size: 0.95rem;
+        }
+
+        .btn-whatsapp {
+            display: inline-block;
+            text-decoration: none;
+            background: #25D366;
+            color: white;
+            padding: 16px 28px;
+            border-radius: 999px;
+            font-weight: bold;
+            font-size: 1.05rem;
+            transition: 0.2s;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+        }
+
+        .section {
+            padding: 70px 0;
+        }
+
+        .section-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+        }
+
         .section-title {
-            color: #1b5e20;
-            font-size: 1.2em;
-            margin-bottom: 12px;
-            font-weight: 700;
-            letter-spacing: 1px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--green-dark);
+            font-size: 2rem;
         }
-        ul {
-            color: #333;
-            font-size: 1.05em;
+
+        .cards,
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .card,
+        .feature {
+            background: var(--gray);
+            padding: 25px;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .card h3 {
+            color: var(--green-dark);
+            margin-bottom: 10px;
+        }
+
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .column-box {
+            background: var(--gray);
+            padding: 25px;
+            border-radius: 16px;
+        }
+
+        .column-box h3 {
+            margin-bottom: 15px;
+            color: var(--green-dark);
+        }
+
+        .column-box ul {
             padding-left: 20px;
         }
-        .copy-btn {
-            margin-left: 10px;
-            background: #43ea7f;
-            border: none;
-            color: #fff;
-            border-radius: 6px;
-            padding: 3px 10px;
-            font-size: 0.95em;
-            cursor: pointer;
-            transition: background 0.2s;
+
+        .column-box li {
+            margin-bottom: 8px;
         }
-        .copy-btn:hover {
-            background: #1b5e20;
+
+        .promo-box {
+            background: #f0faf2;
+            border: 2px solid var(--green-main);
+            border-radius: 18px;
+            padding: 30px;
+            text-align: center;
         }
-        @media (max-width: 600px) {
-            .content {
-                padding: 22px 8px;
-                margin-left: 15px;
-                margin-right: 15px;
+
+        .promo-box h2 {
+            color: var(--green-dark);
+            margin-bottom: 15px;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .bio-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .bio-grid img {
+            width: 100%;
+            border-radius: 18px;
+        }
+
+        .languages {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .language-card {
+            background: var(--gray);
+            border-radius: 16px;
+            text-align: center;
+            padding: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .faq-item {
+            margin-bottom: 25px;
+        }
+
+        .faq-item h3 {
+            color: var(--green-dark);
+            margin-bottom: 8px;
+        }
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            max-width: 700px;
+            margin: 0 auto 25px auto;
+        }
+
+        .qr {
+            width: 220px;
+            max-width: 100%;
+            margin-top: 30px;
+            border-radius: 16px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--green-dark);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: #25D366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 30px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            z-index: 999;
+        }
+
+        @media(max-width:900px) {
+            .hero-text h1 {
+                font-size: 2.2rem;
             }
-            .header h1 { font-size: 2em; }
+
+            .bio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .two-columns {
+                grid-template-columns: 1fr;
+            }
+
+            .languages {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width:650px) {
+
+            .cards,
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .section-card {
+                padding: 28px;
+            }
+
+            .hero-image {
+                width: 180px;
+            }
         }
     </style>
 </head>
+
+<!-- Add class="banner-hidden" to body to hide the summer banner -->
+
 <body>
-    <div class="header">
-        <div class="geoshape geo1"></div>
-        <div class="geoshape geo2"></div>
-        <div class="geoshape geo3"></div>
-        <h1>Michele Tunesi</h1>
-        <h2>Ripetizioni</h2>
+
+    <a href="#contatti" class="whatsapp-float" aria-label="Vai ai contatti">
+        💬
+    </a>
+
+    <div class="top-banner">
+        Piani estivi di recupero debito disponibili. Sconto per prenotazioni anticipate.
+        <a href="#contatti">Richiedi informazioni</a>
     </div>
-    <div class="content" style="margin-top: 24px;">
-        <div class="section-title">About Me</div>
-        <p>Sono un ricercatore del Politecnico di Torino e offro ripetizioni in materie scientifiche. Ho iniziato a dare ripetizioni al Liceo e tratto studenti dalle elementari fino ai primi anni di Università. Ho un dottorato in Ingegneria Meccanica e Aerospaziale, ottenuto negli Stati Uniti.</p>
-    </div>
-    <div class="content">
-        <div class="section-title">Aree di esperienza</div>
-        <ul>
-            <li>Matematica</li>
-            <li>Fisica</li>
-            <li>Inglese (6 anni vissuti negli Stati Uniti)</li>
-            <li>Geometria</li>
-            <li>MATLAB</li>
-            <li>Spagnolo (tramite madrelingua)</li>
-        </ul>
-    </div>
-    <div class="content" style="margin-top: 24px;">
-        <div class="section-title">Contatti</div>
-        <ul>
-            <li>Email: <a href="mailto:michele.tunesi.94@gmail.com">michele.tunesi.94@gmail.com</a></li>
-            <li>Telefono: <a href="tel:+393517184536">+39 351 718 4536</a></li>
-        </ul>
-    </body>
-    </html>
-    </div>
+
+    <header class="hero">
+        <div class="hero-content">
+
+            <div class="hero-image">
+                <img src="images/profile.png" alt="Foto docente">
+            </div>
+
+            <div class="hero-text">
+
+                <h1>Ripetizioni di Matematica, Fisica, Geometria e Inglese</h1>
+
+                <p>
+                    Lezioni personalizzate per studenti delle scuole elementari,
+                    medie e superiori, con particolare esperienza nel Liceo Scientifico.
+                </p>
+
+                <div class="badges">
+                    <div class="badge">Ricercatore al Politecnico di Torino</div>
+                    <div class="badge">PhD negli Stati Uniti</div>
+                    <div class="badge">Italiano · English · Español</div>
+                    <div class="badge">Lezioni in presenza a Torino e zone limitrofe</div>
+                </div>
+
+                <a href="#contatti" class="btn-whatsapp">
+                    Vai ai contatti
+                </a>
+
+            </div>
+
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="promo-box">
+                <h2>Piani estivi di recupero debito</h2>
+                <p>
+                    Durante l'estate sono disponibili percorsi programmati per il recupero del debito scolastico,
+                    con obiettivi definiti, calendario concordato e preparazione mirata alla verifica di recupero.
+                </p>
+                <br>
+                <p>
+                    È previsto uno sconto per chi prenota il percorso in anticipo.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-card">
+
+                <h2 class="section-title">Materie</h2>
+
+                <div class="cards">
+                    <div class="card">
+                        <h3>Matematica</h3>
+                        <p>Supporto nello studio, recupero delle lacune, preparazione di verifiche e interrogazioni.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Fisica</h3>
+                        <p>Comprensione della teoria e svolgimento guidato degli esercizi.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Geometria</h3>
+                        <p>Metodo di risoluzione e consolidamento dei concetti fondamentali.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Inglese</h3>
+                        <p>Supporto scolastico, grammatica, comprensione e conversazione.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-card">
+
+                <h2 class="section-title">Per chi sono le lezioni</h2>
+
+                <div class="two-columns">
+
+                    <div class="column-box">
+                        <h3>Scuola primaria e secondaria di primo grado</h3>
+                        <ul>
+                            <li>Recupero delle difficoltà scolastiche</li>
+                            <li>Metodo di studio</li>
+                            <li>Preparazione di verifiche</li>
+                            <li>Supporto continuativo durante l'anno</li>
+                        </ul>
+                    </div>
+
+                    <div class="column-box">
+                        <h3>Liceo Scientifico e altri istituti superiori</h3>
+                        <ul>
+                            <li>Preparazione verifiche e interrogazioni</li>
+                            <li>Recupero insufficienze</li>
+                            <li>Preparazione esami</li>
+                            <li>Supporto durante tutto l'anno scolastico</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-card">
+
+                <h2 class="section-title">Esperienza e formazione</h2>
+
+                <div class="features">
+
+                    <div class="feature">
+                        <div class="feature-icon">🎓</div>
+                        <p>Ricercatore presso il Politecnico di Torino</p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">📚</div>
+                        <p>Dottorato in Ingegneria Meccanica e Aerospaziale presso Oklahoma State University</p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">👨‍🏫</div>
+                        <p>Teaching Assistant per diversi corsi universitari di Ingegneria Meccanica</p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">⭐</div>
+                        <p>Oltre 15 anni di esperienza nelle ripetizioni a studenti di ogni livello</p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">🌎</div>
+                        <p>6 anni di esperienza accademica e professionale negli Stati Uniti</p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">🗣️</div>
+                        <p>Lezioni disponibili in italiano, inglese e spagnolo</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-card">
+
+                <h2 class="section-title">Chi sono</h2>
+
+                <div style="max-width:800px; margin:auto; text-align:left;">
+
+                    <p>
+                        Sono ricercatore presso il Politecnico di Torino.
+                        Ho conseguito il dottorato presso Oklahoma State University
+                        negli Stati Uniti in Ingegneria Meccanica e Aerospaziale.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Durante il mio percorso accademico ho svolto attività di Teaching Assistant
+                        per diversi corsi universitari di Ingegneria Meccanica, maturando una
+                        significativa esperienza nell'insegnamento e nel supporto agli studenti.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Ho vissuto e lavorato negli Stati Uniti per sei anni, sviluppando esperienza
+                        accademica e professionale in un contesto internazionale.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Parallelamente all'attività universitaria, da oltre 15 anni offro ripetizioni
+                        e supporto allo studio a studenti delle scuole elementari, medie, superiori
+                        e universitarie.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Il mio obiettivo è aiutare ogni studente a consolidare le basi,
+                        acquisire un metodo di studio efficace e affrontare con maggiore
+                        sicurezza verifiche, interrogazioni ed esami.
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-card">
+
+                <h2 class="section-title">Lingue disponibili</h2>
+
+                <div class="languages">
+                    <div class="language-card">🇮🇹<br>Italiano</div>
+                    <div class="language-card">🇬🇧<br>English</div>
+                    <div class="language-card">🇪🇸<br>Español</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-card">
+
+                <h2 class="section-title">Domande frequenti</h2>
+
+                <div class="faq-item">
+                    <h3>Le lezioni sono online o in presenza?</h3>
+                    <p>Le lezioni sono disponibili in presenza a Torino e zone limitrofe.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Quanto dura una lezione?</h3>
+                    <p>La durata viene concordata in base alle esigenze dello studente. Tipicamente 1 ora e 30 minuti
+                        per lezione sono sufficenti per affrontare un argomento e praticare esercizi basici.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Le lezioni sono individuali?</h3>
+                    <p>Sì, le lezioni sono personalizzate sul livello e sugli obiettivi dello studente.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Come posso prenotare una lezione?</h3>
+                    <p>È sufficente contattarmi tramite WhatsApp.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contatti">
+        <div class="container">
+            <div class="section-card contact">
+
+                <h2 class="section-title">Prenota una lezione o richiedi informazioni</h2>
+
+                <p>
+                    Scrivimi su WhatsApp per verificare la disponibilità,
+                    ricevere maggiori informazioni o organizzare una prima lezione.
+                </p>
+
+                <p>
+                    Lezioni disponibili in presenza a Torino e zone limitrofe.
+                </p>
+
+                <a href="https://wa.me/qr/UVC274LKA4FCK1" class="btn-whatsapp" target="_blank">
+                    Scrivimi su WhatsApp
+                </a>
+
+                <div>
+                    <img src="images/whatsapp-qr.png" alt="QR WhatsApp" class="qr">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 Tutti i diritti riservati
+    </footer>
+
 </body>
+
 </html>
